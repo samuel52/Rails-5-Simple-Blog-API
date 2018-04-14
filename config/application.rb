@@ -27,9 +27,9 @@ module Articleapi
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
-    config.action_dispatch.default_headers = {
-    'Access-Control-Allow-Origin' => 'https://chompoo500ml.github.io',
-    'Access-Control-Request-Method' => %w{GET POST OPTIONS}.join(",")
-  }
+    config.action_dispatch.default_headers.merge!({
+      'Access-Control-Allow-Origin' => '*',
+      'Access-Control-Request-Method' => '*'
+    })
   end
 end

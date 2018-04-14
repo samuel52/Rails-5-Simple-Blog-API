@@ -16,6 +16,12 @@ require "rails/test_unit/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+config.action_dispatch.default_headers = {
+    'Access-Control-Allow-Origin' => 'https://safe-coast-54130.herokuapp.com',
+    'Access-Control-Request-Method' => %w{GET POST OPTIONS}.join(",")
+  }
+
+  
 module Articleapi
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
